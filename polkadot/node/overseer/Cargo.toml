@@ -7,6 +7,7 @@ edition = "2021"
 [dependencies]
 client = { package = "sc-client-api", git = "https://github.com/paritytech/substrate", rev = "c364008a6c7da8456e17967f55edf51e45146998" }
 sp-api = { git = "https://github.com/paritytech/substrate", rev = "c364008a6c7da8456e17967f55edf51e45146998" }
+sp-runtime = { git = "https://github.com/paritytech/substrate", rev = "c364008a6c7da8456e17967f55edf51e45146998" }
 futures = "0.3.21"
 futures-timer = "3.0.2"
 parking_lot = "0.12.0"

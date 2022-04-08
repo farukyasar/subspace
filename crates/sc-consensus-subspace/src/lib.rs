@@ -566,6 +566,13 @@ impl<Block: BlockT> SubspaceLink<Block> {
         self.archived_segment_notification_stream.clone()
     }
 
+    ///
+    pub fn imported_block_notification_stream(
+        &self,
+    ) -> SubspaceNotificationStream<(NumberFor<Block>, mpsc::Sender<RootBlock>)> {
+        self.imported_block_notification_stream.clone()
+    }
+
     /// Get blocks that are expected to be included at specified block number.
     pub fn root_blocks_for_block(&self, block_number: NumberFor<Block>) -> Vec<RootBlock> {
         self.root_blocks
@@ -1117,6 +1124,10 @@ where
         let import_result = self.inner.import_block(block, new_cache).await?;
         let (root_block_sender, root_block_receiver) = mpsc::channel(0);
 
+        println!(
+            "======================== notify imported block: {}, import_result: {:?}",
+            block_number, import_result
+        );
         self.imported_block_notification_sender
             .notify(move || (block_number, root_block_sender));
 

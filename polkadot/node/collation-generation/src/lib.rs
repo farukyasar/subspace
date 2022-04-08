@@ -108,6 +108,7 @@ where
 				activated,
 				..
 			}))) => {
+				println!("============== [handle_incoming] activated: {:?}", activated);
 				// follow the procedure from the guide
 				if let Some(config) = &self.config {
 					if let Err(err) = handle_new_activations(
@@ -252,6 +253,7 @@ where
 	Client::Api: ExecutorApi<Block>,
 {
 	for relay_parent in activated {
+		println!("=============== [handle_new_activations] relay_parent: {:?}", relay_parent);
 		// TODO: invoke this on finalized block?
 		process_primary_block(Arc::clone(client), config, relay_parent, ctx).await?;
 	}

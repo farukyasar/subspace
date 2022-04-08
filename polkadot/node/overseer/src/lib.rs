@@ -70,7 +70,11 @@ use std::{
 use futures::{future::BoxFuture, select, stream::FusedStream, Future, FutureExt, StreamExt};
 use lru::LruCache;
 
-use client::{BlockImportNotification, BlockchainEvents, FinalityNotification};
+use client::{BlockImportNotification, BlockchainEvents, FinalityNotification, HeaderBackend};
+use sp_runtime::{
+	generic::BlockId,
+	traits::{Header as HeaderT, NumberFor},
+};
 
 use polkadot_node_subsystem_types::messages::CollationGenerationMessage;
 pub use polkadot_node_subsystem_types::{
@@ -180,18 +184,30 @@ pub enum Event {
 
 /// Glues together the [`Overseer`] and `BlockchainEvents` by forwarding
 /// import and finality notifications into the [`OverseerHandle`].
-pub async fn forward_events<P: BlockchainEvents<Block>>(
+// pub async fn forward_events<P: BlockchainEvents<Block>>(
+pub async fn forward_events<P: HeaderBackend<Block>>(
 	client: Arc<P>,
+	mut imports: impl FusedStream<Item = NumberFor<Block>> + Unpin,
 	mut slots: impl FusedStream<Item = ExecutorSlotInfo> + Unpin,
 	mut handle: Handle,
 ) {
-	let mut imports = client.import_notification_stream();
-
+	// let mut imports = client.import_notification_stream();
 	loop {
 		select! {
 			i = imports.next() => {
 				match i {
-					Some(block) => {
+					Some(block_number) => {
+									let header = client
+									.header(BlockId::Number(block_number))
+									.unwrap()
+									.unwrap();
+								let block = BlockInfo {
+									hash: header.hash(),
+									parent_hash: *header.parent_hash(),
+									number: *header.number(),
+								};
+
+
 						handle.block_imported(block.into()).await;
 					}
 					None => break,

@@ -432,8 +432,10 @@ where
 
         {
             let handle = handle.clone();
-            let overseer_client = client.clone();
+            let client = client.clone();
             let new_slot_notification_stream_clone = new_slot_notification_stream.clone();
+            let imported_block_notification_stream =
+                subspace_link.imported_block_notification_stream();
             task_manager.spawn_essential_handle().spawn_blocking(
                 "overseer",
                 Some("overseer"),
@@ -442,7 +444,12 @@ where
                     use futures::{pin_mut, select, FutureExt, StreamExt};
 
                     let forward = polkadot_overseer::forward_events(
-                        overseer_client,
+                        client,
+                        Box::pin(
+                            imported_block_notification_stream
+                                .subscribe()
+                                .then(|(block_number, _)| async move { block_number }),
+                        ),
                         Box::pin(new_slot_notification_stream_clone.subscribe().then(
                             |slot_notification| async move {
                                 let slot_info = slot_notification.new_slot_info;
