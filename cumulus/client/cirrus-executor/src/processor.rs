@@ -144,7 +144,8 @@ where
 		let import_result =
 			(&*self.client).import_block(block_import_params, Default::default()).await?;
 
-		println!("=============== [processor] imported: {:?}", import_result);
+		println!("=======================================================================================");
+		println!("=============== [processor] number: {}, imported: {:?}", header_number, import_result);
 
 		// TODO: handle the import result properly.
 		match import_result {
