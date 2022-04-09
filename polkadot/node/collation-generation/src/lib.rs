@@ -21,8 +21,9 @@
 use cirrus_node_primitives::{CollationGenerationConfig, ExecutorSlotInfo};
 use futures::future::FutureExt;
 use polkadot_node_subsystem::{
-	messages::CollationGenerationMessage, overseer, ActiveLeavesUpdate, FromOverseer,
-	OverseerSignal, SpawnedSubsystem, SubsystemContext, SubsystemError, SubsystemResult,
+	messages::CollationGenerationMessage, overseer, ActivatedLeaf, ActiveLeavesUpdate,
+	FromOverseer, OverseerSignal, SpawnedSubsystem, SubsystemContext, SubsystemError,
+	SubsystemResult,
 };
 use sc_client_api::BlockBackend;
 use sp_api::{ApiError, ProvideRuntimeApi};
@@ -49,6 +50,7 @@ const LOG_TARGET: &str = "parachain::collation-generation";
 pub struct CollationGenerationSubsystem<Client> {
 	primary_chain_client: Arc<Client>,
 	config: Option<Arc<CollationGenerationConfig>>,
+	initialize_backlog: Vec<Hash>,
 }
 
 impl<Client> CollationGenerationSubsystem<Client>
@@ -63,7 +65,7 @@ where
 {
 	/// Create a new instance of the `CollationGenerationSubsystem`.
 	pub fn new(primary_chain_client: Arc<Client>) -> Self {
-		Self { primary_chain_client, config: None }
+		Self { primary_chain_client, config: None, initialize_backlog: Vec::new() }
 	}
 
 	/// Run this subsystem
@@ -108,19 +110,35 @@ where
 				activated,
 				..
 			}))) => {
-				println!("============== [handle_incoming] activated: {:?}", activated);
-				// follow the procedure from the guide
+				println!(
+					"============== [handle_incoming] activated: {:?}, config: {:?}",
+					activated, self.config
+				);
+
+				// TODO: once we merge the executor into the subspace node, we could just initialize the config in the new() method.
+				// Problem solved then.
 				if let Some(config) = &self.config {
 					if let Err(err) = handle_new_activations(
 						&self.primary_chain_client,
 						config,
-						activated.into_iter().map(|v| v.hash),
+						{
+							if self.initialize_backlog.is_empty() {
+								activated.into_iter().map(|v| v.hash).collect::<Vec<_>>().into_iter()
+							} else {
+								self.initialize_backlog
+									.drain(..)
+									.chain(activated.into_iter().map(|v| v.hash))
+									.collect::<Vec<_>>().into_iter()
+							}
+						},
 						ctx,
 					)
 					.await
 					{
 						tracing::warn!(target: LOG_TARGET, err = ?err, "failed to handle new activations");
 					}
+				} else {
+					self.initialize_backlog.extend(activated.into_iter().map(|v| v.hash));
 				}
 
 				false
@@ -240,7 +258,7 @@ where
 async fn handle_new_activations<Client, Context: SubsystemContext>(
 	client: &Arc<Client>,
 	config: &CollationGenerationConfig,
-	activated: impl IntoIterator<Item = Hash>,
+	activated: impl Iterator<Item = Hash>,
 	ctx: &mut Context,
 ) -> Result<(), Error>
 where
@@ -252,6 +270,15 @@ where
 		+ Sync,
 	Client::Api: ExecutorApi<Block>,
 {
+	println!("================ handling new activations");
+	/*
+	if let Some(ActivatedLeaf { hash, .. }) = activated {
+		println!("=============== [handle_new_activations] relay_parent: {:?}", hash);
+		// TODO: invoke this on finalized block?
+		process_primary_block(Arc::clone(client), config, hash, ctx).await?;
+	}
+	*/
+
 	for relay_parent in activated {
 		println!("=============== [handle_new_activations] relay_parent: {:?}", relay_parent);
 		// TODO: invoke this on finalized block?
@@ -281,6 +308,7 @@ where
 	Client::Api: ExecutorApi<Block>,
 {
 	let block_id = BlockId::Hash(block_hash);
+	println!("111111111111111111111111111111111111111");
 	let extrinsics = match client.block_body(&block_id) {
 		Err(err) => {
 			tracing::error!(
@@ -299,6 +327,7 @@ where
 
 	let bundles = client.runtime_api().extract_bundles(&block_id, extrinsics)?;
 
+	println!("2222222222222222222222222222222222222222222");
 	let header = match client.header(block_id) {
 		Err(err) => {
 			tracing::error!(target: LOG_TARGET, ?err, "Failed to get block from primary chain");
@@ -324,6 +353,7 @@ where
 
 	let shuffling_seed = client.runtime_api().extrinsics_shuffling_seed(&block_id, header)?;
 
+	println!("============== calling processor");
 	let opaque_execution_receipt =
 		match (config.processor)(block_hash, bundles, shuffling_seed, maybe_new_runtime).await {
 			Some(processor_result) => processor_result.to_opaque_execution_receipt(),
