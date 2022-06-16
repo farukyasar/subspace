@@ -140,6 +140,30 @@
 <span id="133">133</span>
 <span id="134">134</span>
 <span id="135">135</span>
+<span id="136">136</span>
+<span id="137">137</span>
+<span id="138">138</span>
+<span id="139">139</span>
+<span id="140">140</span>
+<span id="141">141</span>
+<span id="142">142</span>
+<span id="143">143</span>
+<span id="144">144</span>
+<span id="145">145</span>
+<span id="146">146</span>
+<span id="147">147</span>
+<span id="148">148</span>
+<span id="149">149</span>
+<span id="150">150</span>
+<span id="151">151</span>
+<span id="152">152</span>
+<span id="153">153</span>
+<span id="154">154</span>
+<span id="155">155</span>
+<span id="156">156</span>
+<span id="157">157</span>
+<span id="158">158</span>
+<span id="159">159</span>
 </pre><pre class="rust"><code><span class="comment">// Copyright (C) 2021 Subspace Labs, Inc.</span>
 <span class="comment">// SPDX-License-Identifier: GPL-3.0-or-later</span>
 
@@ -158,18 +182,14 @@
 
 <span class="doccomment">//! Secondary chain configurations.</span>
 
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::chain_spec_utils</span>::{
-    <span class="ident">chain_spec_properties</span>, <span class="ident">get_account_id_from_seed</span>, <span class="ident">SerializableChainSpec</span>,
-};
-<span class="kw">use</span> <span class="ident">cirrus_runtime::AccountId</span>;
+<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::chain_spec_utils</span>::{<span class="ident">chain_spec_properties</span>, <span class="ident">get_account_id_from_seed</span>};
+<span class="kw">use</span> <span class="ident">cirrus_runtime</span>::{<span class="ident">AccountId</span>, <span class="ident">BalancesConfig</span>, <span class="ident">GenesisConfig</span>, <span class="ident">SystemConfig</span>, <span class="ident">WASM_BINARY</span>};
 <span class="kw">use</span> <span class="ident">sc_service::ChainType</span>;
+<span class="kw">use</span> <span class="ident">sc_subspace_chain_specs::ExecutionChainSpec</span>;
 <span class="kw">use</span> <span class="ident">sp_core::crypto::Ss58Codec</span>;
 <span class="kw">use</span> <span class="ident">subspace_runtime_primitives::SSC</span>;
 
-<span class="doccomment">/// Specialized `ChainSpec` for the normal parachain runtime.</span>
-<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">ExecutionChainSpec</span> <span class="op">=</span> <span class="ident">SerializableChainSpec</span><span class="op">&lt;</span><span class="ident">cirrus_runtime::GenesisConfig</span><span class="op">&gt;</span>;
-
-<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">development_config</span>() -&gt; <span class="ident">ExecutionChainSpec</span> {
+<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">development_config</span>() -&gt; <span class="ident">ExecutionChainSpec</span><span class="op">&lt;</span><span class="ident">GenesisConfig</span><span class="op">&gt;</span> {
     <span class="ident">ExecutionChainSpec::from_genesis</span>(
         <span class="comment">// Name</span>
         <span class="string">&quot;Development&quot;</span>,
@@ -193,7 +213,7 @@
     )
 }
 
-<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">local_testnet_config</span>() -&gt; <span class="ident">ExecutionChainSpec</span> {
+<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">local_testnet_config</span>() -&gt; <span class="ident">ExecutionChainSpec</span><span class="op">&lt;</span><span class="ident">GenesisConfig</span><span class="op">&gt;</span> {
     <span class="ident">ExecutionChainSpec::from_genesis</span>(
         <span class="comment">// Name</span>
         <span class="string">&quot;Local Testnet&quot;</span>,
@@ -230,12 +250,12 @@
     )
 }
 
-<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">gemini_config</span>() -&gt; <span class="ident">ExecutionChainSpec</span> {
+<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">gemini_config</span>() -&gt; <span class="ident">ExecutionChainSpec</span><span class="op">&lt;</span><span class="ident">GenesisConfig</span><span class="op">&gt;</span> {
     <span class="ident">ExecutionChainSpec::from_genesis</span>(
         <span class="comment">// Name</span>
-        <span class="string">&quot;Subspace Gemini Execution 1&quot;</span>,
+        <span class="string">&quot;Subspace Gemini 1 Execution&quot;</span>,
         <span class="comment">// ID</span>
-        <span class="string">&quot;subspace_gemini_1a_execution&quot;</span>,
+        <span class="string">&quot;subspace_gemini_1b_execution&quot;</span>,
         <span class="ident">ChainType::Local</span>,
         <span class="kw">move</span> <span class="op">|</span><span class="op">|</span> {
             <span class="ident">testnet_genesis</span>(<span class="macro">vec!</span>[
@@ -249,7 +269,7 @@
         <span class="comment">// Telemetry</span>
         <span class="prelude-val">None</span>,
         <span class="comment">// Protocol ID</span>
-        <span class="prelude-val">Some</span>(<span class="string">&quot;subspace-gemini-1a-execution&quot;</span>),
+        <span class="prelude-val">Some</span>(<span class="string">&quot;subspace-gemini-1b-execution&quot;</span>),
         <span class="prelude-val">None</span>,
         <span class="comment">// Properties</span>
         <span class="prelude-val">Some</span>(<span class="ident">chain_spec_properties</span>()),
@@ -258,15 +278,43 @@
     )
 }
 
-<span class="kw">fn</span> <span class="ident">testnet_genesis</span>(<span class="ident">endowed_accounts</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">AccountId</span><span class="op">&gt;</span>) -&gt; <span class="ident">cirrus_runtime::GenesisConfig</span> {
-    <span class="ident">cirrus_runtime::GenesisConfig</span> {
-        <span class="ident">system</span>: <span class="ident">cirrus_runtime::SystemConfig</span> {
-            <span class="ident">code</span>: <span class="ident">cirrus_runtime::WASM_BINARY</span>
+<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">x_net_config</span>() -&gt; <span class="ident">ExecutionChainSpec</span><span class="op">&lt;</span><span class="ident">GenesisConfig</span><span class="op">&gt;</span> {
+    <span class="ident">ExecutionChainSpec::from_genesis</span>(
+        <span class="comment">// Name</span>
+        <span class="string">&quot;Subspace X-Net 1 Execution&quot;</span>,
+        <span class="comment">// ID</span>
+        <span class="string">&quot;subspace_x_net_1a_execution&quot;</span>,
+        <span class="ident">ChainType::Local</span>,
+        <span class="kw">move</span> <span class="op">|</span><span class="op">|</span> {
+            <span class="ident">testnet_genesis</span>(<span class="macro">vec!</span>[
+                <span class="comment">// Same with the Sudo account on primary chain.</span>
+                <span class="ident">AccountId::from_ss58check</span>(<span class="string">&quot;5CXTmJEusve5ixyJufqHThmy4qUrrm6FyLCR7QfE4bbyMTNC&quot;</span>)
+                    .<span class="ident">expect</span>(<span class="string">&quot;Wrong root account address&quot;</span>),
+            ])
+        },
+        <span class="comment">// Bootnodes</span>
+        <span class="macro">vec!</span>[],
+        <span class="comment">// Telemetry</span>
+        <span class="prelude-val">None</span>,
+        <span class="comment">// Protocol ID</span>
+        <span class="prelude-val">Some</span>(<span class="string">&quot;subspace-x-net-1a-execution&quot;</span>),
+        <span class="prelude-val">None</span>,
+        <span class="comment">// Properties</span>
+        <span class="prelude-val">Some</span>(<span class="ident">chain_spec_properties</span>()),
+        <span class="comment">// Extensions</span>
+        <span class="prelude-val">None</span>,
+    )
+}
+
+<span class="kw">fn</span> <span class="ident">testnet_genesis</span>(<span class="ident">endowed_accounts</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">AccountId</span><span class="op">&gt;</span>) -&gt; <span class="ident">GenesisConfig</span> {
+    <span class="ident">GenesisConfig</span> {
+        <span class="ident">system</span>: <span class="ident">SystemConfig</span> {
+            <span class="ident">code</span>: <span class="ident">WASM_BINARY</span>
                 .<span class="ident">expect</span>(<span class="string">&quot;WASM binary was not build, please build it!&quot;</span>)
                 .<span class="ident">to_vec</span>(),
         },
         <span class="ident">transaction_payment</span>: <span class="ident">Default::default</span>(),
-        <span class="ident">balances</span>: <span class="ident">cirrus_runtime::BalancesConfig</span> {
+        <span class="ident">balances</span>: <span class="ident">BalancesConfig</span> {
             <span class="ident">balances</span>: <span class="ident">endowed_accounts</span>
                 .<span class="ident">iter</span>()
                 .<span class="ident">cloned</span>()
