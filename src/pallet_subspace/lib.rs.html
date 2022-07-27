@@ -1,9 +1,8 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `crates/pallet-subspace/src/lib.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>lib.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../storage.js"></script><script src="../../crates.js"></script><script defer src="../../main.js"></script><script defer src="../../source-script.js"></script><script defer src="../../source-files.js"></script>
-    <noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../pallet_subspace/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `crates/pallet-subspace/src/lib.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>lib.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../storage.js"></script><script defer src="../../source-script.js"></script><script defer src="../../source-files.js"></script><script defer src="../../main.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../pallet_subspace/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div>
         </a><h2 class="location"></h2>
     </nav>
     <nav class="sidebar"><a class="sidebar-logo" href="../../pallet_subspace/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div>
-        </a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../pallet_subspace/index.html"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><button type="button" id="help-button" title="help">?</button><div id="settings-menu" tabindex="-1">
+        </a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../pallet_subspace/index.html"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1">
                                 <a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../wheel.svg"></a></div>
                         </div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
 <span id="2">2</span>
@@ -1653,37 +1652,6 @@
 <span id="1646">1646</span>
 <span id="1647">1647</span>
 <span id="1648">1648</span>
-<span id="1649">1649</span>
-<span id="1650">1650</span>
-<span id="1651">1651</span>
-<span id="1652">1652</span>
-<span id="1653">1653</span>
-<span id="1654">1654</span>
-<span id="1655">1655</span>
-<span id="1656">1656</span>
-<span id="1657">1657</span>
-<span id="1658">1658</span>
-<span id="1659">1659</span>
-<span id="1660">1660</span>
-<span id="1661">1661</span>
-<span id="1662">1662</span>
-<span id="1663">1663</span>
-<span id="1664">1664</span>
-<span id="1665">1665</span>
-<span id="1666">1666</span>
-<span id="1667">1667</span>
-<span id="1668">1668</span>
-<span id="1669">1669</span>
-<span id="1670">1670</span>
-<span id="1671">1671</span>
-<span id="1672">1672</span>
-<span id="1673">1673</span>
-<span id="1674">1674</span>
-<span id="1675">1675</span>
-<span id="1676">1676</span>
-<span id="1677">1677</span>
-<span id="1678">1678</span>
-<span id="1679">1679</span>
 </pre><pre class="rust"><code><span class="attribute">#![<span class="ident">feature</span>(<span class="ident">assert_matches</span>)]</span>
 <span class="comment">// Copyright (C) 2019-2021 Parity Technologies (UK) Ltd.</span>
 <span class="comment">// Copyright (C) 2021 Subspace Labs, Inc.</span>
@@ -1713,7 +1681,6 @@
 <span class="kw">mod</span> <span class="ident">tests</span>;
 
 <span class="kw">use</span> <span class="ident">codec</span>::{<span class="ident">Decode</span>, <span class="ident">Encode</span>, <span class="ident">MaxEncodedLen</span>};
-<span class="kw">use</span> <span class="ident">core::mem</span>;
 <span class="kw">use</span> <span class="ident">equivocation</span>::{<span class="ident">HandleEquivocation</span>, <span class="ident">SubspaceEquivocationOffence</span>};
 <span class="kw">use</span> <span class="ident">frame_support::dispatch</span>::{<span class="ident">DispatchResult</span>, <span class="ident">DispatchResultWithPostInfo</span>};
 <span class="kw">use</span> <span class="ident">frame_support::traits</span>::{<span class="ident">Get</span>, <span class="ident">OnTimestampSet</span>};
@@ -1724,21 +1691,13 @@
 <span class="kw">use</span> <span class="ident">scale_info::TypeInfo</span>;
 <span class="kw">use</span> <span class="ident">schnorrkel::SignatureError</span>;
 <span class="kw">use</span> <span class="ident">sp_consensus_slots::Slot</span>;
-<span class="kw">use</span> <span class="ident">sp_consensus_subspace::digests</span>::{
-    <span class="ident">CompatibleDigestItem</span>, <span class="ident">GlobalRandomnessDescriptor</span>, <span class="ident">SaltDescriptor</span>, <span class="ident">SolutionRangeDescriptor</span>,
-};
+<span class="kw">use</span> <span class="ident">sp_consensus_subspace::digests::CompatibleDigestItem</span>;
 <span class="kw">use</span> <span class="ident">sp_consensus_subspace::offence</span>::{<span class="ident">OffenceDetails</span>, <span class="ident">OffenceError</span>, <span class="ident">OnOffenceHandler</span>};
-<span class="kw">use</span> <span class="ident">sp_consensus_subspace::verification</span>::{
-    <span class="ident">PieceCheckParams</span>, <span class="ident">VerificationError</span>, <span class="ident">VerifySolutionParams</span>,
-};
 <span class="kw">use</span> <span class="ident">sp_consensus_subspace</span>::{
-    <span class="ident">derive_randomness</span>, <span class="ident">verification</span>, <span class="ident">EquivocationProof</span>, <span class="ident">FarmerPublicKey</span>, <span class="ident">FarmerSignature</span>,
-    <span class="ident">SignedVote</span>, <span class="ident">Vote</span>,
+    <span class="ident">EquivocationProof</span>, <span class="ident">FarmerPublicKey</span>, <span class="ident">FarmerSignature</span>, <span class="ident">SignedVote</span>, <span class="ident">Vote</span>,
 };
 <span class="kw">use</span> <span class="ident">sp_runtime::generic::DigestItem</span>;
-<span class="kw">use</span> <span class="ident">sp_runtime::traits</span>::{
-    <span class="ident">BlockNumberProvider</span>, <span class="ident">Hash</span>, <span class="ident">Header</span> <span class="kw">as</span> <span class="ident">HeaderT</span>, <span class="ident">One</span>, <span class="ident">SaturatedConversion</span>, <span class="ident">Saturating</span>, <span class="ident">Zero</span>,
-};
+<span class="kw">use</span> <span class="ident">sp_runtime::traits</span>::{<span class="ident">BlockNumberProvider</span>, <span class="ident">Hash</span>, <span class="ident">One</span>, <span class="ident">SaturatedConversion</span>, <span class="ident">Saturating</span>, <span class="ident">Zero</span>};
 <span class="kw">use</span> <span class="ident">sp_runtime::transaction_validity</span>::{
     <span class="ident">InvalidTransaction</span>, <span class="ident">TransactionPriority</span>, <span class="ident">TransactionSource</span>, <span class="ident">TransactionValidity</span>,
     <span class="ident">TransactionValidityError</span>, <span class="ident">ValidTransaction</span>,
@@ -1747,12 +1706,15 @@
 <span class="kw">use</span> <span class="ident">sp_std::collections::btree_map::BTreeMap</span>;
 <span class="kw">use</span> <span class="ident">sp_std::prelude</span>::<span class="kw-2">*</span>;
 <span class="kw">use</span> <span class="ident">subspace_core_primitives</span>::{
-    <span class="ident">crypto</span>, <span class="ident">Randomness</span>, <span class="ident">RootBlock</span>, <span class="ident">Salt</span>, <span class="ident">PIECE_SIZE</span>, <span class="ident">RANDOMNESS_LENGTH</span>, <span class="ident">SALT_SIZE</span>,
+    <span class="ident">PublicKey</span>, <span class="ident">Randomness</span>, <span class="ident">RewardSignature</span>, <span class="ident">RootBlock</span>, <span class="ident">Salt</span>, <span class="ident">MERKLE_NUM_LEAVES</span>, <span class="ident">PIECE_SIZE</span>,
+    <span class="ident">RECORDED_HISTORY_SEGMENT_SIZE</span>, <span class="ident">RECORD_SIZE</span>,
 };
 <span class="kw">use</span> <span class="ident">subspace_solving::REWARD_SIGNING_CONTEXT</span>;
-
-<span class="kw">const</span> <span class="ident">SALT_HASHING_PREFIX</span>: <span class="kw-2">&amp;</span>[<span class="ident">u8</span>] <span class="op">=</span> <span class="string">b&quot;salt&quot;</span>;
-<span class="kw">const</span> <span class="ident">SALT_HASHING_PREFIX_LEN</span>: <span class="ident">usize</span> <span class="op">=</span> <span class="ident">SALT_HASHING_PREFIX</span>.<span class="ident">len</span>();
+<span class="kw">use</span> <span class="ident">subspace_verification</span>::{
+    <span class="ident">check_reward_signature</span>, <span class="ident">derive_next_salt_from_randomness</span>, <span class="ident">derive_next_solution_range</span>,
+    <span class="ident">derive_randomness</span>, <span class="ident">verify_solution</span>, <span class="ident">Error</span> <span class="kw">as</span> <span class="ident">VerificationError</span>, <span class="ident">PieceCheckParams</span>,
+    <span class="ident">VerifySolutionParams</span>,
+};
 
 <span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">WeightInfo</span> {
     <span class="kw">fn</span> <span class="ident">report_equivocation</span>() -&gt; <span class="ident">Weight</span>;
@@ -1933,6 +1895,7 @@
         <span class="attribute">#[<span class="ident">pallet::constant</span>]</span>
         <span class="kw">type</span> <span class="ident">ConfirmationDepthK</span>: <span class="ident">Get</span><span class="op">&lt;</span><span class="ident"><span class="self">Self</span>::BlockNumber</span><span class="op">&gt;</span>;
 
+        <span class="comment">// TODO: Remove when breaking protocol</span>
         <span class="doccomment">/// The size of data in one piece (in bytes).</span>
         <span class="attribute">#[<span class="ident">pallet::constant</span>]</span>
         <span class="kw">type</span> <span class="ident">RecordSize</span>: <span class="ident">Get</span><span class="op">&lt;</span><span class="ident">u32</span><span class="op">&gt;</span>;
@@ -1941,7 +1904,7 @@
         <span class="attribute">#[<span class="ident">pallet::constant</span>]</span>
         <span class="kw">type</span> <span class="ident">MaxPlotSize</span>: <span class="ident">Get</span><span class="op">&lt;</span><span class="ident">u64</span><span class="op">&gt;</span>;
 
-        <span class="comment">// TODO: This will probably become configurable later</span>
+        <span class="comment">// TODO: Remove when breaking protocol</span>
         <span class="doccomment">/// Recorded history is encoded and plotted in segments of this size (in bytes).</span>
         <span class="attribute">#[<span class="ident">pallet::constant</span>]</span>
         <span class="kw">type</span> <span class="ident">RecordedHistorySegmentSize</span>: <span class="ident">Get</span><span class="op">&lt;</span><span class="ident">u32</span><span class="op">&gt;</span>;
@@ -2350,9 +2313,7 @@
 
     <span class="doccomment">/// Total number of pieces in the blockchain</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">total_pieces</span>() -&gt; <span class="ident">u64</span> {
-        <span class="comment">// TODO: This assumes fixed size segments, which might not be the case</span>
-        <span class="kw">let</span> <span class="ident">merkle_num_leaves</span> <span class="op">=</span> <span class="ident">T::RecordedHistorySegmentSize::get</span>() <span class="op">/</span> <span class="ident">T::RecordSize::get</span>() <span class="op">*</span> <span class="number">2</span>;
-        <span class="ident">u64::from</span>(<span class="ident">RecordsRoot</span>::<span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span><span class="ident">::count</span>()) <span class="op">*</span> <span class="ident">u64::from</span>(<span class="ident">merkle_num_leaves</span>)
+        <span class="ident">u64::from</span>(<span class="ident">RecordsRoot</span>::<span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span><span class="ident">::count</span>()) <span class="op">*</span> <span class="ident">u64::from</span>(<span class="ident">MERKLE_NUM_LEAVES</span>)
     }
 
     <span class="doccomment">/// Determine whether a randomness update should take place at this block.</span>
@@ -2374,8 +2335,8 @@
         <span class="kw-2">*</span><span class="ident">diff</span> <span class="op">&gt;</span><span class="op">=</span> <span class="ident">T::EonDuration::get</span>()
     }
 
-    <span class="doccomment">/// DANGEROUS: Enact era change. Should be done on every block where `should_era_change` has</span>
-    <span class="doccomment">/// returned `true`, and the caller is the only caller of this function.</span>
+    <span class="doccomment">/// DANGEROUS: Enact update of global randomness. Should be done on every block where `should_update_global_randomness`</span>
+    <span class="doccomment">/// has returned `true`, and the caller is the only caller of this function.</span>
     <span class="kw">fn</span> <span class="ident">enact_update_global_randomness</span>(<span class="ident">_block_number</span>: <span class="ident">T::BlockNumber</span>, <span class="ident">por_randomness</span>: <span class="ident">Randomness</span>) {
         <span class="ident">GlobalRandomnesses</span>::<span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span><span class="ident">::mutate</span>(<span class="op">|</span><span class="ident">global_randomnesses</span><span class="op">|</span> {
             <span class="ident">global_randomnesses</span>.<span class="ident">next</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">por_randomness</span>);
@@ -2402,38 +2363,15 @@
                 <span class="ident">next_solution_range</span> <span class="op">=</span> <span class="ident">solution_range_override</span>.<span class="ident">solution_range</span>;
                 <span class="ident">next_voting_solution_range</span> <span class="op">=</span> <span class="ident">solution_range_override</span>.<span class="ident">voting_solution_range</span>;
             } <span class="kw">else</span> {
-                <span class="comment">// If Era start slot is not found it means we have just finished the first era</span>
-                <span class="kw">let</span> <span class="ident">era_start_slot</span> <span class="op">=</span> <span class="ident">EraStartSlot</span>::<span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span><span class="ident">::get</span>().<span class="ident">unwrap_or_else</span>(<span class="ident">GenesisSlot</span>::<span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span><span class="ident">::get</span>);
-                <span class="kw">let</span> <span class="ident">era_slot_count</span> <span class="op">=</span> <span class="ident">u64::from</span>(<span class="ident">current_slot</span>) <span class="op">-</span> <span class="ident">u64::from</span>(<span class="ident">era_start_slot</span>);
-
-                <span class="comment">// Now we need to re-calculate solution range. The idea here is to keep block production at</span>
-                <span class="comment">// the same pace while space pledged on the network changes. For this we adjust previous</span>
-                <span class="comment">// solution range according to actual and expected number of blocks per era.</span>
-                <span class="kw">let</span> <span class="ident">era_duration</span>: <span class="ident">u64</span> <span class="op">=</span> <span class="ident">T::EraDuration::get</span>()
-                    .<span class="ident">try_into</span>()
-                    .<span class="ident">unwrap_or_else</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="macro">panic!</span>(<span class="string">&quot;Era duration is always within u64; qed&quot;</span>));
-
-                <span class="comment">// Below is code analogous to the following, but without using floats:</span>
-                <span class="comment">// ```rust</span>
-                <span class="comment">// let actual_slots_per_block = era_slot_count as f64 / era_duration as f64;</span>
-                <span class="comment">// let expected_slots_per_block =</span>
-                <span class="comment">//     slot_probability.1 as f64 / slot_probability.0 as f64;</span>
-                <span class="comment">// let adjustment_factor =</span>
-                <span class="comment">//     (actual_slots_per_block / expected_slots_per_block).clamp(0.25, 4.0);</span>
-                <span class="comment">//</span>
-                <span class="comment">// next_solution_range =</span>
-                <span class="comment">//     (solution_ranges.current as f64 * adjustment_factor).round() as u64;</span>
-                <span class="comment">// ```</span>
-                <span class="ident">next_solution_range</span> <span class="op">=</span> <span class="ident">u64::saturated_from</span>(
-                    <span class="ident">u128::from</span>(<span class="ident">solution_ranges</span>.<span class="ident">current</span>)
-                        .<span class="ident">saturating_mul</span>(<span class="ident">u128::from</span>(<span class="ident">era_slot_count</span>))
-                        .<span class="ident">saturating_mul</span>(<span class="ident">u128::from</span>(<span class="ident">slot_probability</span>.<span class="number">0</span>))
-                        <span class="op">/</span> <span class="ident">u128::from</span>(<span class="ident">era_duration</span>)
-                        <span class="op">/</span> <span class="ident">u128::from</span>(<span class="ident">slot_probability</span>.<span class="number">1</span>),
-                )
-                .<span class="ident">clamp</span>(
-                    <span class="ident">solution_ranges</span>.<span class="ident">current</span> <span class="op">/</span> <span class="number">4</span>,
-                    <span class="ident">solution_ranges</span>.<span class="ident">current</span>.<span class="ident">saturating_mul</span>(<span class="number">4</span>),
+                <span class="ident">next_solution_range</span> <span class="op">=</span> <span class="ident">derive_next_solution_range</span>(
+                    <span class="comment">// If Era start slot is not found it means we have just finished the first era</span>
+                    <span class="ident">u64::from</span>(<span class="ident">EraStartSlot</span>::<span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span><span class="ident">::get</span>().<span class="ident">unwrap_or_else</span>(<span class="ident">GenesisSlot</span>::<span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span><span class="ident">::get</span>)),
+                    <span class="ident">u64::from</span>(<span class="ident">current_slot</span>),
+                    <span class="ident">slot_probability</span>,
+                    <span class="ident">solution_ranges</span>.<span class="ident">current</span>,
+                    <span class="ident">T::EraDuration::get</span>()
+                        .<span class="ident">try_into</span>()
+                        .<span class="ident">unwrap_or_else</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="macro">panic!</span>(<span class="string">&quot;Era duration is always within u64; qed&quot;</span>)),
                 );
 
                 <span class="ident">next_voting_solution_range</span> <span class="op">=</span> <span class="ident">next_solution_range</span>
@@ -2592,7 +2530,7 @@
         <span class="comment">// Extract PoR randomness from pre-digest.</span>
         <span class="comment">// Tag signature is validated by the client and is always valid here.</span>
         <span class="kw">let</span> <span class="ident">por_randomness</span>: <span class="ident">Randomness</span> <span class="op">=</span> <span class="ident">derive_randomness</span>(
-            <span class="kw-2">&amp;</span><span class="ident">pre_digest</span>.<span class="ident">solution</span>.<span class="ident">public_key</span>,
+            <span class="kw-2">&amp;</span><span class="ident">Into</span>::<span class="op">&lt;</span><span class="ident">PublicKey</span><span class="op">&gt;</span><span class="ident">::into</span>(<span class="kw-2">&amp;</span><span class="ident">pre_digest</span>.<span class="ident">solution</span>.<span class="ident">public_key</span>),
             <span class="ident">pre_digest</span>.<span class="ident">solution</span>.<span class="ident">tag</span>,
             <span class="kw-2">&amp;</span><span class="ident">pre_digest</span>.<span class="ident">solution</span>.<span class="ident">tag_signature</span>,
         )
@@ -2601,21 +2539,15 @@
         <span class="ident">PorRandomness</span>::<span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span><span class="ident">::put</span>(<span class="ident">por_randomness</span>);
 
         <span class="comment">// Deposit global randomness data such that light client can validate blocks later.</span>
-        <span class="ident">frame_system::Pallet</span>::<span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span><span class="ident">::deposit_log</span>(<span class="ident">DigestItem::global_randomness_descriptor</span>(
-            <span class="ident">GlobalRandomnessDescriptor</span> {
-                <span class="ident">global_randomness</span>: <span class="ident">GlobalRandomnesses</span>::<span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span><span class="ident">::get</span>().<span class="ident">current</span>,
-            },
+        <span class="ident">frame_system::Pallet</span>::<span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span><span class="ident">::deposit_log</span>(<span class="ident">DigestItem::global_randomness</span>(
+            <span class="ident">GlobalRandomnesses</span>::<span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span><span class="ident">::get</span>().<span class="ident">current</span>,
         ));
         <span class="comment">// Deposit solution range data such that light client can validate blocks later.</span>
-        <span class="ident">frame_system::Pallet</span>::<span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span><span class="ident">::deposit_log</span>(<span class="ident">DigestItem::solution_range_descriptor</span>(
-            <span class="ident">SolutionRangeDescriptor</span> {
-                <span class="ident">solution_range</span>: <span class="ident">SolutionRanges</span>::<span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span><span class="ident">::get</span>().<span class="ident">current</span>,
-            },
+        <span class="ident">frame_system::Pallet</span>::<span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span><span class="ident">::deposit_log</span>(<span class="ident">DigestItem::solution_range</span>(
+            <span class="ident">SolutionRanges</span>::<span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span><span class="ident">::get</span>().<span class="ident">current</span>,
         ));
         <span class="comment">// Deposit salt data such that light client can validate blocks later.</span>
-        <span class="ident">frame_system::Pallet</span>::<span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span><span class="ident">::deposit_log</span>(<span class="ident">DigestItem::salt_descriptor</span>(<span class="ident">SaltDescriptor</span> {
-            <span class="ident">salt</span>: <span class="ident">Salts</span>::<span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span><span class="ident">::get</span>().<span class="ident">current</span>,
-        }));
+        <span class="ident">frame_system::Pallet</span>::<span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span><span class="ident">::deposit_log</span>(<span class="ident">DigestItem::salt</span>(<span class="ident">Salts</span>::<span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span><span class="ident">::get</span>().<span class="ident">current</span>));
 
         <span class="kw">let</span> <span class="ident">next_salt_reveal</span> <span class="op">=</span> <span class="ident"><span class="self">Self</span>::current_eon_start</span>()
             .<span class="ident">checked_add</span>(<span class="ident">T::EonNextSaltReveal::get</span>())
@@ -2631,10 +2563,9 @@
                         <span class="ident">eon_index</span>,
                         <span class="kw-2">*</span><span class="ident">current_slot</span>
                     );
-                    <span class="ident">salts</span>.<span class="ident">next</span>.<span class="ident">replace</span>(<span class="ident"><span class="self">Self</span>::derive_next_salt_from_randomness</span>(
-                        <span class="ident">eon_index</span>,
-                        <span class="kw-2">&amp;</span><span class="ident">por_randomness</span>,
-                    ));
+                    <span class="ident">salts</span>
+                        .<span class="ident">next</span>
+                        .<span class="ident">replace</span>(<span class="ident">derive_next_salt_from_randomness</span>(<span class="ident">eon_index</span>, <span class="kw-2">&amp;</span><span class="ident">por_randomness</span>));
                 }
             });
         }
@@ -2645,6 +2576,29 @@
         <span class="ident">T::EraChangeTrigger::trigger</span>::<span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>(<span class="ident">block_number</span>);
         <span class="comment">// Enact eon change, if necessary.</span>
         <span class="ident">T::EonChangeTrigger::trigger</span>::<span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>(<span class="ident">block_number</span>);
+
+        <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="ident">next_global_randomness</span>) <span class="op">=</span> <span class="ident">GlobalRandomnesses</span>::<span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span><span class="ident">::get</span>().<span class="ident">next</span> {
+            <span class="comment">// Deposit global randomness data such that light client can validate blocks later.</span>
+            <span class="ident">frame_system::Pallet</span>::<span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span><span class="ident">::deposit_log</span>(<span class="ident">DigestItem::next_global_randomness</span>(
+                <span class="ident">next_global_randomness</span>,
+            ));
+        }
+        <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="ident">next_solution_range</span>) <span class="op">=</span> <span class="ident">SolutionRanges</span>::<span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span><span class="ident">::get</span>().<span class="ident">next</span> {
+            <span class="comment">// Deposit solution range data such that light client can validate blocks later.</span>
+            <span class="ident">frame_system::Pallet</span>::<span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span><span class="ident">::deposit_log</span>(<span class="ident">DigestItem::next_solution_range</span>(
+                <span class="ident">next_solution_range</span>,
+            ));
+        }
+        {
+            <span class="kw">let</span> <span class="ident">salts</span> <span class="op">=</span> <span class="ident">Salts</span>::<span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span><span class="ident">::get</span>();
+            <span class="kw">if</span> <span class="ident">salts</span>.<span class="ident">switch_next_block</span> {
+                <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="ident">next_salt</span>) <span class="op">=</span> <span class="ident">salts</span>.<span class="ident">next</span> {
+                    <span class="comment">// Deposit next global randomness data such that light client can validate blocks</span>
+                    <span class="comment">// later.</span>
+                    <span class="ident">frame_system::Pallet</span>::<span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span><span class="ident">::deposit_log</span>(<span class="ident">DigestItem::next_salt</span>(<span class="ident">next_salt</span>));
+                }
+            }
+        }
     }
 
     <span class="kw">fn</span> <span class="ident">do_finalize</span>(<span class="ident">_block_number</span>: <span class="ident">T::BlockNumber</span>) {
@@ -2684,6 +2638,11 @@
     <span class="kw">fn</span> <span class="ident">do_store_root_blocks</span>(<span class="ident">root_blocks</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">RootBlock</span><span class="op">&gt;</span>) -&gt; <span class="ident">DispatchResult</span> {
         <span class="kw">for</span> <span class="ident">root_block</span> <span class="kw">in</span> <span class="ident">root_blocks</span> {
             <span class="ident">RecordsRoot</span>::<span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span><span class="ident">::insert</span>(<span class="ident">root_block</span>.<span class="ident">segment_index</span>(), <span class="ident">root_block</span>.<span class="ident">records_root</span>());
+            <span class="comment">// Deposit global randomness data such that light client can validate blocks later.</span>
+            <span class="ident">frame_system::Pallet</span>::<span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span><span class="ident">::deposit_log</span>(<span class="ident">DigestItem::records_root</span>(
+                <span class="ident">root_block</span>.<span class="ident">segment_index</span>(),
+                <span class="ident">root_block</span>.<span class="ident">records_root</span>(),
+            ));
             <span class="ident"><span class="self">Self</span>::deposit_event</span>(<span class="ident">Event::RootBlockStored</span> { <span class="ident">root_block</span> });
         }
         <span class="prelude-val">Ok</span>(())
@@ -2759,22 +2718,6 @@
         <span class="prelude-val">Ok</span>(())
     }
 
-    <span class="kw">fn</span> <span class="ident">derive_next_salt_from_randomness</span>(
-        <span class="ident">eon_index</span>: <span class="ident">u64</span>,
-        <span class="ident">randomness</span>: <span class="kw-2">&amp;</span><span class="ident">Randomness</span>,
-    ) -&gt; <span class="ident">subspace_core_primitives::Salt</span> {
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">input</span> <span class="op">=</span> [<span class="number">0u8</span>; <span class="ident">SALT_HASHING_PREFIX_LEN</span> <span class="op">+</span> <span class="ident">RANDOMNESS_LENGTH</span> <span class="op">+</span> <span class="ident">mem::size_of</span>::<span class="op">&lt;</span><span class="ident">u64</span><span class="op">&gt;</span>()];
-        <span class="ident">input</span>[..<span class="ident">SALT_HASHING_PREFIX_LEN</span>].<span class="ident">copy_from_slice</span>(<span class="ident">SALT_HASHING_PREFIX</span>);
-        <span class="ident">input</span>[<span class="ident">SALT_HASHING_PREFIX_LEN</span>..<span class="ident">SALT_HASHING_PREFIX_LEN</span> <span class="op">+</span> <span class="ident">RANDOMNESS_LENGTH</span>]
-            .<span class="ident">copy_from_slice</span>(<span class="ident">randomness</span>);
-        <span class="ident">input</span>[<span class="ident">SALT_HASHING_PREFIX_LEN</span> <span class="op">+</span> <span class="ident">RANDOMNESS_LENGTH</span>..]
-            .<span class="ident">copy_from_slice</span>(<span class="kw-2">&amp;</span><span class="ident">eon_index</span>.<span class="ident">to_le_bytes</span>());
-
-        <span class="ident">crypto::sha256_hash</span>(<span class="kw-2">&amp;</span><span class="ident">input</span>)[..<span class="ident">SALT_SIZE</span>]
-            .<span class="ident">try_into</span>()
-            .<span class="ident">expect</span>(<span class="string">&quot;Slice has exactly the size needed; qed&quot;</span>)
-    }
-
     <span class="doccomment">/// Submits an extrinsic to report an equivocation. This method will create an unsigned</span>
     <span class="doccomment">/// extrinsic with a call to `report_equivocation` and will push the transaction to the pool.</span>
     <span class="doccomment">/// Only useful in an offchain context.</span>
@@ -2801,7 +2744,7 @@
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">archived_history_size</span>() -&gt; <span class="ident">u64</span> {
         <span class="kw">let</span> <span class="ident">archived_segments</span> <span class="op">=</span> <span class="ident">RecordsRoot</span>::<span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span><span class="ident">::count</span>();
         <span class="comment">// `*2` because we need to include both data and parity pieces</span>
-        <span class="kw">let</span> <span class="ident">archived_segment_size</span> <span class="op">=</span> <span class="ident">T::RecordedHistorySegmentSize::get</span>() <span class="op">/</span> <span class="ident">T::RecordSize::get</span>()
+        <span class="kw">let</span> <span class="ident">archived_segment_size</span> <span class="op">=</span> <span class="ident">RECORDED_HISTORY_SEGMENT_SIZE</span> <span class="op">/</span> <span class="ident">RECORD_SIZE</span>
             <span class="op">*</span> <span class="ident">u32::try_from</span>(<span class="ident">PIECE_SIZE</span>)
                 .<span class="ident">expect</span>(<span class="string">&quot;Piece size is definitely small enough to fit into u32; qed&quot;</span>)
             <span class="op">*</span> <span class="number">2</span>;
@@ -2938,8 +2881,8 @@
                 .<span class="ident">next</span>
                 .<span class="ident">expect</span>(<span class="string">&quot;Next salt must always be available if `switch_next_block` is true; qed&quot;</span>)
         },
-        <span class="ident">record_size</span>: <span class="ident">T::RecordSize::get</span>(),
-        <span class="ident">recorded_history_segment_size</span>: <span class="ident">T::RecordedHistorySegmentSize::get</span>(),
+        <span class="ident">record_size</span>: <span class="ident">RECORD_SIZE</span>,
+        <span class="ident">recorded_history_segment_size</span>: <span class="ident">RECORDED_HISTORY_SEGMENT_SIZE</span>,
         <span class="ident">max_plot_size</span>: <span class="ident">T::MaxPlotSize::get</span>(),
         <span class="ident">total_pieces</span>: <span class="ident">Pallet</span>::<span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span><span class="ident">::total_pieces</span>(),
         <span class="ident">current_slot</span>: <span class="ident">Pallet</span>::<span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span><span class="ident">::current_slot</span>(),
@@ -2956,10 +2899,7 @@
 }
 
 <span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Debug</span>, <span class="ident">Eq</span>, <span class="ident">PartialEq</span>)]</span>
-<span class="kw">enum</span> <span class="ident">CheckVoteError</span><span class="op">&lt;</span><span class="ident">Header</span><span class="op">&gt;</span>
-<span class="kw">where</span>
-    <span class="ident">Header</span>: <span class="ident">HeaderT</span>,
-{
+<span class="kw">enum</span> <span class="ident">CheckVoteError</span> {
     <span class="ident">BlockListed</span>,
     <span class="ident">UnexpectedBeforeHeightTwo</span>,
     <span class="ident">HeightInTheFuture</span>,
@@ -2969,16 +2909,13 @@
     <span class="ident">SlotInThePast</span>,
     <span class="ident">BadRewardSignature</span>(<span class="ident">SignatureError</span>),
     <span class="ident">UnknownRecordsRoot</span>,
-    <span class="ident">InvalidSolution</span>(<span class="ident">VerificationError</span><span class="op">&lt;</span><span class="ident">Header</span><span class="op">&gt;</span>),
+    <span class="ident">InvalidSolution</span>(<span class="ident">VerificationError</span>),
     <span class="ident">DuplicateVote</span>,
     <span class="ident">Equivocated</span>(<span class="ident">SubspaceEquivocationOffence</span><span class="op">&lt;</span><span class="ident">FarmerPublicKey</span><span class="op">&gt;</span>),
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">Header</span><span class="op">&gt;</span> <span class="ident">From</span><span class="op">&lt;</span><span class="ident">CheckVoteError</span><span class="op">&lt;</span><span class="ident">Header</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">TransactionValidityError</span>
-<span class="kw">where</span>
-    <span class="ident">Header</span>: <span class="ident">HeaderT</span>,
-{
-    <span class="kw">fn</span> <span class="ident">from</span>(<span class="ident">error</span>: <span class="ident">CheckVoteError</span><span class="op">&lt;</span><span class="ident">Header</span><span class="op">&gt;</span>) -&gt; <span class="self">Self</span> {
+<span class="kw">impl</span> <span class="ident">From</span><span class="op">&lt;</span><span class="ident">CheckVoteError</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">TransactionValidityError</span> {
+    <span class="kw">fn</span> <span class="ident">from</span>(<span class="ident">error</span>: <span class="ident">CheckVoteError</span>) -&gt; <span class="self">Self</span> {
         <span class="ident">TransactionValidityError::Invalid</span>(<span class="kw">match</span> <span class="ident">error</span> {
             <span class="ident">CheckVoteError::BlockListed</span> =&gt; <span class="ident">InvalidTransaction::BadSigner</span>,
             <span class="ident">CheckVoteError::UnexpectedBeforeHeightTwo</span> =&gt; <span class="ident">InvalidTransaction::Call</span>,
@@ -2999,7 +2936,7 @@
 <span class="kw">fn</span> <span class="ident">check_vote</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">Config</span><span class="op">&gt;</span>(
     <span class="ident">signed_vote</span>: <span class="kw-2">&amp;</span><span class="ident">SignedVote</span><span class="op">&lt;</span><span class="ident">T::BlockNumber</span>, <span class="ident">T::Hash</span>, <span class="ident">T::AccountId</span><span class="op">&gt;</span>,
     <span class="ident">pre_dispatch</span>: <span class="ident">bool</span>,
-) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">CheckVoteError</span><span class="op">&lt;</span><span class="ident">T::Header</span><span class="op">&gt;</span><span class="op">&gt;</span> {
+) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">CheckVoteError</span><span class="op">&gt;</span> {
     <span class="kw">let</span> <span class="ident">Vote::V0</span> {
         <span class="ident">height</span>,
         <span class="ident">parent_hash</span>,
@@ -3098,10 +3035,10 @@
         <span class="kw">return</span> <span class="prelude-val">Err</span>(<span class="ident">CheckVoteError::SlotInThePast</span>);
     }
 
-    <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Err</span>(<span class="ident">error</span>) <span class="op">=</span> <span class="ident">verification::check_reward_signature</span>(
+    <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Err</span>(<span class="ident">error</span>) <span class="op">=</span> <span class="ident">check_reward_signature</span>(
         <span class="ident">signed_vote</span>.<span class="ident">vote</span>.<span class="ident">hash</span>().<span class="ident">as_bytes</span>(),
-        <span class="kw-2">&amp;</span><span class="ident">signed_vote</span>.<span class="ident">signature</span>,
-        <span class="kw-2">&amp;</span><span class="ident">solution</span>.<span class="ident">public_key</span>,
+        <span class="kw-2">&amp;</span><span class="ident">Into</span>::<span class="op">&lt;</span><span class="ident">RewardSignature</span><span class="op">&gt;</span><span class="ident">::into</span>(<span class="kw-2">&amp;</span><span class="ident">signed_vote</span>.<span class="ident">signature</span>),
+        <span class="kw-2">&amp;</span><span class="ident">Into</span>::<span class="op">&lt;</span><span class="ident">PublicKey</span><span class="op">&gt;</span><span class="ident">::into</span>(<span class="kw-2">&amp;</span><span class="ident">solution</span>.<span class="ident">public_key</span>),
         <span class="kw-2">&amp;</span><span class="ident">schnorrkel::signing_context</span>(<span class="ident">REWARD_SIGNING_CONTEXT</span>),
     ) {
         <span class="macro">debug!</span>(
@@ -3134,9 +3071,9 @@
         <span class="kw">return</span> <span class="prelude-val">Err</span>(<span class="ident">CheckVoteError::UnknownRecordsRoot</span>);
     };
 
-    <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Err</span>(<span class="ident">error</span>) <span class="op">=</span> <span class="ident">verification::verify_solution</span>::<span class="op">&lt;</span><span class="ident">T::Header</span>, <span class="ident">T::AccountId</span><span class="op">&gt;</span>(
+    <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Err</span>(<span class="ident">error</span>) <span class="op">=</span> <span class="ident">verify_solution</span>::<span class="op">&lt;</span><span class="ident">FarmerPublicKey</span>, <span class="ident">T::AccountId</span><span class="op">&gt;</span>(
         <span class="ident">solution</span>,
-        <span class="ident">slot</span>,
+        <span class="ident">slot</span>.<span class="ident">into</span>(),
         <span class="ident">VerifySolutionParams</span> {
             <span class="ident">global_randomness</span>: <span class="kw-2">&amp;</span><span class="ident">vote_verification_data</span>.<span class="ident">global_randomness</span>,
             <span class="ident">solution_range</span>: <span class="ident">vote_verification_data</span>.<span class="ident">solution_range</span>,
@@ -3364,5 +3301,5 @@
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../" data-current-crate="pallet_subspace" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.63.0-nightly (42e1761c7 2022-05-15)" ></div>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../" data-current-crate="pallet_subspace" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.64.0-nightly (62b272d25 2022-07-21)" ></div>
 </body></html>

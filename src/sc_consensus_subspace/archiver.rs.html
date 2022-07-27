@@ -1,9 +1,8 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `crates/sc-consensus-subspace/src/archiver.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>archiver.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../storage.js"></script><script src="../../crates.js"></script><script defer src="../../main.js"></script><script defer src="../../source-script.js"></script><script defer src="../../source-files.js"></script>
-    <noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../sc_consensus_subspace/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `crates/sc-consensus-subspace/src/archiver.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>archiver.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../storage.js"></script><script defer src="../../source-script.js"></script><script defer src="../../source-files.js"></script><script defer src="../../main.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../sc_consensus_subspace/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div>
         </a><h2 class="location"></h2>
     </nav>
     <nav class="sidebar"><a class="sidebar-logo" href="../../sc_consensus_subspace/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div>
-        </a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../sc_consensus_subspace/index.html"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><button type="button" id="help-button" title="help">?</button><div id="settings-menu" tabindex="-1">
+        </a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../sc_consensus_subspace/index.html"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1">
                                 <a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../wheel.svg"></a></div>
                         </div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
 <span id="2">2</span>
@@ -528,6 +527,52 @@
 <span id="521">521</span>
 <span id="522">522</span>
 <span id="523">523</span>
+<span id="524">524</span>
+<span id="525">525</span>
+<span id="526">526</span>
+<span id="527">527</span>
+<span id="528">528</span>
+<span id="529">529</span>
+<span id="530">530</span>
+<span id="531">531</span>
+<span id="532">532</span>
+<span id="533">533</span>
+<span id="534">534</span>
+<span id="535">535</span>
+<span id="536">536</span>
+<span id="537">537</span>
+<span id="538">538</span>
+<span id="539">539</span>
+<span id="540">540</span>
+<span id="541">541</span>
+<span id="542">542</span>
+<span id="543">543</span>
+<span id="544">544</span>
+<span id="545">545</span>
+<span id="546">546</span>
+<span id="547">547</span>
+<span id="548">548</span>
+<span id="549">549</span>
+<span id="550">550</span>
+<span id="551">551</span>
+<span id="552">552</span>
+<span id="553">553</span>
+<span id="554">554</span>
+<span id="555">555</span>
+<span id="556">556</span>
+<span id="557">557</span>
+<span id="558">558</span>
+<span id="559">559</span>
+<span id="560">560</span>
+<span id="561">561</span>
+<span id="562">562</span>
+<span id="563">563</span>
+<span id="564">564</span>
+<span id="565">565</span>
+<span id="566">566</span>
+<span id="567">567</span>
+<span id="568">568</span>
+<span id="569">569</span>
 </pre><pre class="rust"><code><span class="comment">// Copyright (C) 2021 Subspace Labs, Inc.</span>
 <span class="comment">// SPDX-License-Identifier: GPL-3.0-or-later WITH Classpath-exception-2.0</span>
 
@@ -550,8 +595,9 @@
 };
 <span class="kw">use</span> <span class="ident">codec::Encode</span>;
 <span class="kw">use</span> <span class="ident">futures</span>::{<span class="ident">future</span>, <span class="ident">SinkExt</span>, <span class="ident">StreamExt</span>};
-<span class="kw">use</span> <span class="ident">log</span>::{<span class="ident">debug</span>, <span class="ident">error</span>, <span class="ident">info</span>};
-<span class="kw">use</span> <span class="ident">sc_client_api::BlockBackend</span>;
+<span class="kw">use</span> <span class="ident">log</span>::{<span class="ident">debug</span>, <span class="ident">error</span>, <span class="ident">info</span>, <span class="ident">warn</span>};
+<span class="kw">use</span> <span class="ident">sc_client_api</span>::{<span class="ident">Backend</span> <span class="kw">as</span> <span class="ident">BackendT</span>, <span class="ident">BlockBackend</span>, <span class="ident">Finalizer</span>, <span class="ident">LockImportRun</span>};
+<span class="kw">use</span> <span class="ident">sc_telemetry</span>::{<span class="ident">telemetry</span>, <span class="ident">TelemetryHandle</span>, <span class="ident">CONSENSUS_INFO</span>};
 <span class="kw">use</span> <span class="ident">sc_utils::mpsc::tracing_unbounded</span>;
 <span class="kw">use</span> <span class="ident">sp_api::ProvideRuntimeApi</span>;
 <span class="kw">use</span> <span class="ident">sp_blockchain::HeaderBackend</span>;
@@ -563,7 +609,9 @@
 <span class="kw">use</span> <span class="ident">std::time::Duration</span>;
 <span class="kw">use</span> <span class="ident">subspace_archiving::archiver</span>::{<span class="ident">ArchivedSegment</span>, <span class="ident">Archiver</span>};
 <span class="kw">use</span> <span class="ident">subspace_core_primitives::objects::BlockObjectMapping</span>;
-<span class="kw">use</span> <span class="ident">subspace_core_primitives</span>::{<span class="ident">BlockNumber</span>, <span class="ident">RootBlock</span>};
+<span class="kw">use</span> <span class="ident">subspace_core_primitives</span>::{
+    <span class="ident">BlockNumber</span>, <span class="ident">RootBlock</span>, <span class="ident">RECORDED_HISTORY_SEGMENT_SIZE</span>, <span class="ident">RECORD_SIZE</span>,
+};
 
 <span class="kw">const</span> <span class="ident">ARCHIVED_SEGMENT_NOTIFICATION_INTERVAL</span>: <span class="ident">Duration</span> <span class="op">=</span> <span class="ident">Duration::from_secs</span>(<span class="number">5</span>);
 
@@ -646,9 +694,12 @@
     <span class="prelude-val">Some</span>((<span class="ident">last_root_block</span>, <span class="ident">last_archived_block</span>, <span class="ident">block_object_mappings</span>))
 }
 
-<span class="kw">struct</span> <span class="ident">BlockHashesToArchive</span><span class="op">&lt;</span><span class="ident">BlockHash</span><span class="op">&gt;</span> {
-    <span class="ident">block_hashes</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">BlockHash</span><span class="op">&gt;</span>,
-    <span class="ident">best_archived</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">BlockHash</span><span class="op">&gt;</span>,
+<span class="kw">struct</span> <span class="ident">BlockHashesToArchive</span><span class="op">&lt;</span><span class="ident">Block</span><span class="op">&gt;</span>
+<span class="kw">where</span>
+    <span class="ident">Block</span>: <span class="ident">BlockT</span>,
+{
+    <span class="ident">block_hashes</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">Block::Hash</span><span class="op">&gt;</span>,
+    <span class="ident">best_archived</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span>(<span class="ident">Block::Hash</span>, <span class="ident">NumberFor</span><span class="op">&lt;</span><span class="ident">Block</span><span class="op">&gt;</span>)<span class="op">&gt;</span>,
 }
 
 <span class="kw">fn</span> <span class="ident">block_hashes_to_archive</span><span class="op">&lt;</span><span class="ident">Block</span>, <span class="ident">Client</span><span class="op">&gt;</span>(
@@ -656,7 +707,7 @@
     <span class="ident">best_block_hash</span>: <span class="ident">Block::Hash</span>,
     <span class="ident">blocks_to_archive_from</span>: <span class="ident">NumberFor</span><span class="op">&lt;</span><span class="ident">Block</span><span class="op">&gt;</span>,
     <span class="ident">blocks_to_archive_to</span>: <span class="ident">NumberFor</span><span class="op">&lt;</span><span class="ident">Block</span><span class="op">&gt;</span>,
-) -&gt; <span class="ident">BlockHashesToArchive</span><span class="op">&lt;</span><span class="ident">Block::Hash</span><span class="op">&gt;</span>
+) -&gt; <span class="ident">BlockHashesToArchive</span><span class="op">&lt;</span><span class="ident">Block</span><span class="op">&gt;</span>
 <span class="kw">where</span>
     <span class="ident">Block</span>: <span class="ident">BlockT</span>,
     <span class="ident">Client</span>: <span class="ident">HeaderBackend</span><span class="op">&lt;</span><span class="ident">Block</span><span class="op">&gt;</span>,
@@ -676,7 +727,7 @@
             <span class="ident">block_hashes</span>.<span class="ident">push</span>(<span class="ident">block_hash_to_check</span>);
 
             <span class="kw">if</span> <span class="ident">best_archived</span>.<span class="ident">is_none</span>() {
-                <span class="ident">best_archived</span>.<span class="ident">replace</span>(<span class="ident">block_hash_to_check</span>);
+                <span class="ident">best_archived</span>.<span class="ident">replace</span>((<span class="ident">block_hash_to_check</span>, <span class="kw-2">*</span><span class="ident">header</span>.<span class="ident">number</span>()));
             }
         }
 
@@ -693,11 +744,14 @@
     }
 }
 
-<span class="kw">struct</span> <span class="ident">InitializedArchiver</span><span class="op">&lt;</span><span class="ident">BlockHash</span><span class="op">&gt;</span> {
+<span class="kw">struct</span> <span class="ident">InitializedArchiver</span><span class="op">&lt;</span><span class="ident">Block</span><span class="op">&gt;</span>
+<span class="kw">where</span>
+    <span class="ident">Block</span>: <span class="ident">BlockT</span>,
+{
     <span class="ident">confirmation_depth_k</span>: <span class="ident">BlockNumber</span>,
     <span class="ident">archiver</span>: <span class="ident">Archiver</span>,
     <span class="ident">older_archived_segments</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">ArchivedSegment</span><span class="op">&gt;</span>,
-    <span class="ident">best_archived_block_hash</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">BlockHash</span><span class="op">&gt;</span>,
+    <span class="ident">best_archived_block</span>: (<span class="ident">Block::Hash</span>, <span class="ident">NumberFor</span><span class="op">&lt;</span><span class="ident">Block</span><span class="op">&gt;</span>),
 }
 
 <span class="kw">fn</span> <span class="ident">initialize_archiver</span><span class="op">&lt;</span><span class="ident">Block</span>, <span class="ident">Client</span><span class="op">&gt;</span>(
@@ -705,7 +759,7 @@
     <span class="ident">best_block_number</span>: <span class="ident">NumberFor</span><span class="op">&lt;</span><span class="ident">Block</span><span class="op">&gt;</span>,
     <span class="ident">subspace_link</span>: <span class="kw-2">&amp;</span><span class="ident">SubspaceLink</span><span class="op">&lt;</span><span class="ident">Block</span><span class="op">&gt;</span>,
     <span class="ident">client</span>: <span class="kw-2">&amp;</span><span class="ident">Client</span>,
-) -&gt; <span class="ident">InitializedArchiver</span><span class="op">&lt;</span><span class="ident">Block::Hash</span><span class="op">&gt;</span>
+) -&gt; <span class="ident">InitializedArchiver</span><span class="op">&lt;</span><span class="ident">Block</span><span class="op">&gt;</span>
 <span class="kw">where</span>
     <span class="ident">Block</span>: <span class="ident">BlockT</span>,
     <span class="ident">Client</span>: <span class="ident">ProvideRuntimeApi</span><span class="op">&lt;</span><span class="ident">Block</span><span class="op">&gt;</span> <span class="op">+</span> <span class="ident">BlockBackend</span><span class="op">&lt;</span><span class="ident">Block</span><span class="op">&gt;</span> <span class="op">+</span> <span class="ident">HeaderBackend</span><span class="op">&lt;</span><span class="ident">Block</span><span class="op">&gt;</span>,
@@ -721,17 +775,10 @@
     .<span class="ident">unwrap_or_else</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> {
         <span class="macro">panic!</span>(<span class="string">&quot;Confirmation depth K can&#39;t be converted into BlockNumber&quot;</span>);
     });
-    <span class="kw">let</span> <span class="ident">record_size</span> <span class="op">=</span> <span class="ident">client</span>
-        .<span class="ident">runtime_api</span>()
-        .<span class="ident">record_size</span>(<span class="kw-2">&amp;</span><span class="ident">best_block_id</span>)
-        .<span class="ident">expect</span>(<span class="string">&quot;Failed to get `record_size` from runtime API&quot;</span>);
-    <span class="kw">let</span> <span class="ident">recorded_history_segment_size</span> <span class="op">=</span> <span class="ident">client</span>
-        .<span class="ident">runtime_api</span>()
-        .<span class="ident">recorded_history_segment_size</span>(<span class="kw-2">&amp;</span><span class="ident">best_block_id</span>)
-        .<span class="ident">expect</span>(<span class="string">&quot;Failed to get `recorded_history_segment_size` from runtime API&quot;</span>);
 
     <span class="kw">let</span> <span class="ident">maybe_last_archived_block</span> <span class="op">=</span> <span class="ident">find_last_archived_block</span>(<span class="ident">client</span>, <span class="ident">best_block_id</span>);
     <span class="kw">let</span> <span class="ident">have_last_root_block</span> <span class="op">=</span> <span class="ident">maybe_last_archived_block</span>.<span class="ident">is_some</span>();
+    <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">best_archived_block</span> <span class="op">=</span> <span class="prelude-val">None</span>;
 
     <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">archiver</span> <span class="op">=</span> <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>((<span class="ident">last_root_block</span>, <span class="ident">last_archived_block</span>, <span class="ident">block_object_mappings</span>)) <span class="op">=</span>
         <span class="ident">maybe_last_archived_block</span>
@@ -744,9 +791,16 @@
             <span class="ident">last_archived_block_number</span>,
         );
 
+        <span class="comment">// Set initial value, this is needed in case only genesis block was archived and there is</span>
+        <span class="comment">// nothing else available</span>
+        <span class="ident">best_archived_block</span>.<span class="ident">replace</span>((
+            <span class="ident">last_archived_block</span>.<span class="ident">block</span>.<span class="ident">hash</span>(),
+            <span class="kw-2">*</span><span class="ident">last_archived_block</span>.<span class="ident">block</span>.<span class="ident">header</span>().<span class="ident">number</span>(),
+        ));
+
         <span class="ident">Archiver::with_initial_state</span>(
-            <span class="ident">record_size</span> <span class="kw">as</span> <span class="ident">usize</span>,
-            <span class="ident">recorded_history_segment_size</span> <span class="kw">as</span> <span class="ident">usize</span>,
+            <span class="ident">RECORD_SIZE</span> <span class="kw">as</span> <span class="ident">usize</span>,
+            <span class="ident">RECORDED_HISTORY_SEGMENT_SIZE</span> <span class="kw">as</span> <span class="ident">usize</span>,
             <span class="ident">last_root_block</span>,
             <span class="kw-2">&amp;</span><span class="ident">last_archived_block</span>.<span class="ident">encode</span>(),
             <span class="ident">block_object_mappings</span>,
@@ -755,12 +809,11 @@
     } <span class="kw">else</span> {
         <span class="macro">info!</span>(<span class="ident">target</span>: <span class="string">&quot;subspace&quot;</span>, <span class="string">&quot;Starting archiving from genesis&quot;</span>);
 
-        <span class="ident">Archiver::new</span>(<span class="ident">record_size</span> <span class="kw">as</span> <span class="ident">usize</span>, <span class="ident">recorded_history_segment_size</span> <span class="kw">as</span> <span class="ident">usize</span>)
+        <span class="ident">Archiver::new</span>(<span class="ident">RECORD_SIZE</span> <span class="kw">as</span> <span class="ident">usize</span>, <span class="ident">RECORDED_HISTORY_SEGMENT_SIZE</span> <span class="kw">as</span> <span class="ident">usize</span>)
             .<span class="ident">expect</span>(<span class="string">&quot;Incorrect parameters for archiver&quot;</span>)
     };
 
     <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">older_archived_segments</span> <span class="op">=</span> <span class="ident">Vec::new</span>();
-    <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">best_archived_block_hash</span> <span class="op">=</span> <span class="prelude-val">None</span>;
 
     <span class="comment">// Process blocks since last fully archived block (or genesis) up to the current head minus K</span>
     {
@@ -799,7 +852,7 @@
                 <span class="ident">blocks_to_archive_from</span>.<span class="ident">into</span>(),
                 <span class="ident">blocks_to_archive_to</span>.<span class="ident">into</span>(),
             );
-            <span class="ident">best_archived_block_hash</span> <span class="op">=</span> <span class="ident">block_hashes_to_archive</span>.<span class="ident">best_archived</span>;
+            <span class="ident">best_archived_block</span> <span class="op">=</span> <span class="ident">block_hashes_to_archive</span>.<span class="ident">best_archived</span>;
             <span class="kw">let</span> <span class="ident">block_hashes_to_archive</span> <span class="op">=</span> <span class="ident">block_hashes_to_archive</span>.<span class="ident">block_hashes</span>;
 
             <span class="kw">for</span> <span class="ident">block_hash_to_archive</span> <span class="kw">in</span> <span class="ident">block_hashes_to_archive</span>.<span class="ident">into_iter</span>().<span class="ident">rev</span>() {
@@ -860,23 +913,63 @@
         <span class="ident">confirmation_depth_k</span>,
         <span class="ident">archiver</span>,
         <span class="ident">older_archived_segments</span>,
-        <span class="ident">best_archived_block_hash</span>,
+        <span class="ident">best_archived_block</span>: <span class="ident">best_archived_block</span>
+            .<span class="ident">expect</span>(<span class="string">&quot;Must always set if there is no logical error; qed&quot;</span>),
     }
+}
+
+<span class="kw">fn</span> <span class="ident">finalize_block</span><span class="op">&lt;</span><span class="ident">Block</span>, <span class="ident">Backend</span>, <span class="ident">Client</span><span class="op">&gt;</span>(
+    <span class="ident">client</span>: <span class="kw-2">&amp;</span><span class="ident">Client</span>,
+    <span class="ident">telemetry</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">TelemetryHandle</span><span class="op">&gt;</span>,
+    <span class="ident">hash</span>: <span class="ident">Block::Hash</span>,
+    <span class="ident">number</span>: <span class="ident">NumberFor</span><span class="op">&lt;</span><span class="ident">Block</span><span class="op">&gt;</span>,
+) <span class="kw">where</span>
+    <span class="ident">Block</span>: <span class="ident">BlockT</span>,
+    <span class="ident">Backend</span>: <span class="ident">BackendT</span><span class="op">&lt;</span><span class="ident">Block</span><span class="op">&gt;</span>,
+    <span class="ident">Client</span>: <span class="ident">LockImportRun</span><span class="op">&lt;</span><span class="ident">Block</span>, <span class="ident">Backend</span><span class="op">&gt;</span> <span class="op">+</span> <span class="ident">Finalizer</span><span class="op">&lt;</span><span class="ident">Block</span>, <span class="ident">Backend</span><span class="op">&gt;</span>,
+{
+    <span class="comment">// We don&#39;t have anything useful to do with this result yet, the only source of errors was</span>
+    <span class="comment">// logged already inside</span>
+    <span class="kw">let</span> <span class="ident">_result</span>: <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="kw">_</span>, <span class="ident">sp_blockchain::Error</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">client</span>.<span class="ident">lock_import_and_run</span>(<span class="op">|</span><span class="ident">import_op</span><span class="op">|</span> {
+        <span class="comment">// Ideally some handle to a synchronization oracle would be used to avoid unconditionally</span>
+        <span class="comment">// notifying.</span>
+        <span class="ident">client</span>
+            .<span class="ident">apply_finality</span>(<span class="ident">import_op</span>, <span class="ident">BlockId::Hash</span>(<span class="ident">hash</span>), <span class="prelude-val">None</span>, <span class="bool-val">true</span>)
+            .<span class="ident">map_err</span>(<span class="op">|</span><span class="ident">error</span><span class="op">|</span> {
+                <span class="macro">warn!</span>(<span class="ident">target</span>: <span class="string">&quot;subspace&quot;</span>, <span class="string">&quot;Error applying finality to block {:?}: {}&quot;</span>, (<span class="ident">hash</span>, <span class="ident">number</span>), <span class="ident">error</span>);
+                <span class="ident">error</span>
+            })<span class="question-mark">?</span>;
+
+        <span class="macro">debug!</span>(<span class="ident">target</span>: <span class="string">&quot;subspace&quot;</span>, <span class="string">&quot;Finalizing blocks up to ({:?}, {})&quot;</span>, <span class="ident">number</span>, <span class="ident">hash</span>);
+
+        <span class="macro">telemetry!</span>(
+            <span class="ident">telemetry</span>;
+            <span class="ident">CONSENSUS_INFO</span>;
+            <span class="string">&quot;subspace.finalized_blocks_up_to&quot;</span>;
+            <span class="string">&quot;number&quot;</span> =&gt; <span class="question-mark">?</span><span class="ident">number</span>, <span class="string">&quot;hash&quot;</span> =&gt; <span class="question-mark">?</span><span class="ident">hash</span>,
+        );
+
+        <span class="prelude-val">Ok</span>(())
+    });
 }
 
 <span class="doccomment">/// Start an archiver that will listen for imported blocks and archive blocks at `K` depth,</span>
 <span class="doccomment">/// producing pieces and root blocks (root blocks are then added back to the blockchain as</span>
 <span class="doccomment">/// `store_root_block` extrinsic).</span>
-<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">start_subspace_archiver</span><span class="op">&lt;</span><span class="ident">Block</span>, <span class="ident">Client</span><span class="op">&gt;</span>(
+<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">start_subspace_archiver</span><span class="op">&lt;</span><span class="ident">Block</span>, <span class="ident">Backend</span>, <span class="ident">Client</span><span class="op">&gt;</span>(
     <span class="ident">subspace_link</span>: <span class="kw-2">&amp;</span><span class="ident">SubspaceLink</span><span class="op">&lt;</span><span class="ident">Block</span><span class="op">&gt;</span>,
     <span class="ident">client</span>: <span class="ident">Arc</span><span class="op">&lt;</span><span class="ident">Client</span><span class="op">&gt;</span>,
+    <span class="ident">telemetry</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">TelemetryHandle</span><span class="op">&gt;</span>,
     <span class="ident">spawner</span>: <span class="kw-2">&amp;</span><span class="kw">impl</span> <span class="ident">sp_core::traits::SpawnEssentialNamed</span>,
     <span class="ident">is_authoring_blocks</span>: <span class="ident">bool</span>,
 ) <span class="kw">where</span>
     <span class="ident">Block</span>: <span class="ident">BlockT</span>,
+    <span class="ident">Backend</span>: <span class="ident">BackendT</span><span class="op">&lt;</span><span class="ident">Block</span><span class="op">&gt;</span>,
     <span class="ident">Client</span>: <span class="ident">ProvideRuntimeApi</span><span class="op">&lt;</span><span class="ident">Block</span><span class="op">&gt;</span>
         <span class="op">+</span> <span class="ident">BlockBackend</span><span class="op">&lt;</span><span class="ident">Block</span><span class="op">&gt;</span>
         <span class="op">+</span> <span class="ident">HeaderBackend</span><span class="op">&lt;</span><span class="ident">Block</span><span class="op">&gt;</span>
+        <span class="op">+</span> <span class="ident">LockImportRun</span><span class="op">&lt;</span><span class="ident">Block</span>, <span class="ident">Backend</span><span class="op">&gt;</span>
+        <span class="op">+</span> <span class="ident">Finalizer</span><span class="op">&lt;</span><span class="ident">Block</span>, <span class="ident">Backend</span><span class="op">&gt;</span>
         <span class="op">+</span> <span class="ident">Send</span>
         <span class="op">+</span> <span class="ident">Sync</span>
         <span class="op">+</span> <span class="lifetime">&#39;static</span>,
@@ -890,7 +983,7 @@
         <span class="ident">confirmation_depth_k</span>,
         <span class="kw-2">mut</span> <span class="ident">archiver</span>,
         <span class="ident">older_archived_segments</span>,
-        <span class="kw-2">mut</span> <span class="ident">best_archived_block_hash</span>,
+        <span class="ident">best_archived_block</span>: (<span class="kw-2">mut</span> <span class="ident">best_archived_block_hash</span>, <span class="kw-2">mut</span> <span class="ident">best_archived_block_number</span>),
     } <span class="op">=</span> <span class="ident">initialize_archiver</span>(
         <span class="ident">best_block_hash</span>,
         <span class="ident">best_block_number</span>,
@@ -921,9 +1014,6 @@
                     <span class="ident">drop</span>(<span class="ident">older_archived_segments</span>);
                 }
 
-                <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">last_archived_block_number</span> <span class="op">=</span>
-                    <span class="ident">archiver</span>.<span class="ident">last_archived_block_number</span>().<span class="ident">map</span>(<span class="ident">Into::into</span>);
-
                 <span class="kw">while</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="ident">ImportedBlockNotification</span> {
                     <span class="ident">block_number</span>,
                     <span class="kw-2">mut</span> <span class="ident">root_block_sender</span>,
@@ -937,16 +1027,12 @@
                             }
                         };
 
-                    <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="ident">last_archived_block</span>) <span class="op">=</span> <span class="kw-2">&amp;mut</span> <span class="ident">last_archived_block_number</span> {
-                        <span class="kw">if</span> <span class="kw-2">*</span><span class="ident">last_archived_block</span> <span class="op">&gt;</span><span class="op">=</span> <span class="ident">block_number_to_archive</span> {
-                            <span class="comment">// This block was already archived, skip</span>
-                            <span class="kw">continue</span>;
-                        }
-
-                        <span class="kw-2">*</span><span class="ident">last_archived_block</span> <span class="op">=</span> <span class="ident">block_number_to_archive</span>;
-                    } <span class="kw">else</span> {
-                        <span class="ident">last_archived_block_number</span>.<span class="ident">replace</span>(<span class="ident">block_number_to_archive</span>);
+                    <span class="kw">if</span> <span class="ident">best_archived_block_number</span> <span class="op">&gt;</span><span class="op">=</span> <span class="ident">block_number_to_archive</span> {
+                        <span class="comment">// This block was already archived, skip</span>
+                        <span class="kw">continue</span>;
                     }
+
+                    <span class="ident">best_archived_block_number</span> <span class="op">=</span> <span class="ident">block_number_to_archive</span>;
 
                     <span class="kw">let</span> <span class="ident">block</span> <span class="op">=</span> <span class="ident">client</span>
                         .<span class="ident">block</span>(<span class="kw-2">&amp;</span><span class="ident">BlockId::Number</span>(<span class="ident">block_number_to_archive</span>))
@@ -963,20 +1049,18 @@
                         <span class="ident">block_hash_to_archive</span>
                     );
 
-                    <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="ident">best_archived_block_hash</span>) <span class="op">=</span> <span class="ident">best_archived_block_hash</span> {
-                        <span class="kw">if</span> <span class="ident">parent_block_hash</span> <span class="op">!</span><span class="op">=</span> <span class="ident">best_archived_block_hash</span> {
-                            <span class="macro">error!</span>(
-                                <span class="ident">target</span>: <span class="string">&quot;subspace&quot;</span>,
-                                <span class="string">&quot;Attempt to switch to a different fork beyond archiving depth, \
-                                can&#39;t do it: parent block hash {}, best archived block hash {}&quot;</span>,
-                                <span class="ident">parent_block_hash</span>,
-                                <span class="ident">best_archived_block_hash</span>
-                            );
-                            <span class="kw">return</span>;
-                        }
+                    <span class="kw">if</span> <span class="ident">parent_block_hash</span> <span class="op">!</span><span class="op">=</span> <span class="ident">best_archived_block_hash</span> {
+                        <span class="macro">error!</span>(
+                            <span class="ident">target</span>: <span class="string">&quot;subspace&quot;</span>,
+                            <span class="string">&quot;Attempt to switch to a different fork beyond archiving depth, \
+                            can&#39;t do it: parent block hash {}, best archived block hash {}&quot;</span>,
+                            <span class="ident">parent_block_hash</span>,
+                            <span class="ident">best_archived_block_hash</span>
+                        );
+                        <span class="kw">return</span>;
                     }
 
-                    <span class="ident">best_archived_block_hash</span>.<span class="ident">replace</span>(<span class="ident">block_hash_to_archive</span>);
+                    <span class="ident">best_archived_block_hash</span> <span class="op">=</span> <span class="ident">block_hash_to_archive</span>;
 
                     <span class="kw">let</span> <span class="ident">block_object_mappings</span> <span class="op">=</span> <span class="ident">client</span>
                         .<span class="ident">runtime_api</span>()
@@ -1011,6 +1095,13 @@
 
                         <span class="kw">let</span> <span class="kw">_</span> <span class="op">=</span> <span class="ident">root_block_sender</span>.<span class="ident">send</span>(<span class="ident">root_block</span>).<span class="kw">await</span>;
                     }
+
+                    <span class="ident">finalize_block</span>(
+                        <span class="ident">client</span>.<span class="ident">as_ref</span>(),
+                        <span class="ident">telemetry</span>.<span class="ident">clone</span>(),
+                        <span class="ident">block_hash_to_archive</span>,
+                        <span class="ident">block_number_to_archive</span>,
+                    );
                 }
             }
         }),
@@ -1052,5 +1143,5 @@
     .<span class="kw">await</span>;
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../" data-current-crate="sc_consensus_subspace" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.63.0-nightly (42e1761c7 2022-05-15)" ></div>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../" data-current-crate="sc_consensus_subspace" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.64.0-nightly (62b272d25 2022-07-21)" ></div>
 </body></html>
