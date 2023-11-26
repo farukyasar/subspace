@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"fn":[["hmac_sha256","Hmac with Sha2-256 hash function."],["sha256_hash","Simple Sha2-256 hashing."],["sha256_hash_pair","Simple Sha2-256 hashing of a pair of values."]]};
+window.SIDEBAR_ITEMS = {"fn":["blake3_254_hash_to_scalar","blake3_hash","blake3_hash_list","blake3_hash_parallel","blake3_hash_with_key"],"mod":["kzg"],"struct":["Scalar"]};
